@@ -71,11 +71,11 @@ def process_mempool():
                                 break
                         elif vin["prevout"]["scriptpubkey_type"] == 'p2sh': 
                             if "witness" in vin:
-                                if not verify_p2sh_p2wpkh_transaction(vin,transaction,index): 
+                                if not verify_p2sh_transaction(vin,transaction,index): 
                                     valid = 0
                                     break
                             else:
-                                if not verify_p2sh_transaction(vin,transaction,index):
+                                if not verify_p2sh_p2wpkh_transaction(vin,transaction,index):
                                     valid = 0
                                     break
                         else:
